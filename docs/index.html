@@ -133,16 +133,92 @@
         opacity: 1;
     }
   </style>
+<!-- INICIO: CSS para cuadrícula moderna de Main Topics -->
+<style>
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin: 2em 0;
+    }
+    .topics-grid .topic {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 18px 10px 12px 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, background 0.2s;
+      text-align: center;
+      min-height: 160px;
+    }
+    .topics-grid .topic:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      background: #e6f0fa;
+    }
+    .topics-grid img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+      object-fit: contain;
+    }
+    .topics-grid .topic-title {
+      font-size: 1em;
+      color: #007acc;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+    </style>
+    <!-- FIN: CSS para cuadrícula moderna de Main Topics -->
+
 </head>
 <body>
-<div id="toc">
-<input id="buscador-indice" onkeyup="filtrarIndice()" placeholder="Buscar..." style="width:100%;margin-bottom:8px;" type="text"/><h3>
-    Tabla de Contenidos
-   </h3>
-<ul id="toc-list"><li><a href="#fnref1">+BROWSE0002:000e↩︎</a></li>
-<li><a href="#fnref2">$Main Contents↩︎</a></li>
-<li><a href="#fnref3">KMain Contents↩︎</a></li>
-<li><a href="#fnref4">#1KNLTJ↩︎</a></li>
+    <div id="toc">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <input id="buscador-indice" onkeyup="filtrarIndice()" placeholder="Buscar..." style="width:100%;margin-bottom:8px;" type="text"/>
+          <button id="clear-buscador-indice" type="button" title="Limpiar búsqueda" style="margin-bottom:8px;">✕</button>
+        </div>
+        <h3>Tabla de Contenidos</h3>
+        <ul id="toc-list"><li><a href="#fnref1">Main Contents</a></li>
+      
+      <!-- Agregar CSS para el botón Clear si no existe -->
+      <style>
+      #clear-buscador-indice {
+        background: #eee;
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        font-size: 1.2em;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: none;
+      }
+      #clear-buscador-indice:hover {
+        background: #ccc;
+      }
+      </style>
+      
+      <!-- Agregar JS para el botón Clear -->
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('buscador-indice');
+        const clearBtn = document.getElementById('clear-buscador-indice');
+        if (searchInput && clearBtn) {
+          clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('keyup'));
+            searchInput.focus();
+          });
+          searchInput.addEventListener('input', function() {
+            clearBtn.style.display = searchInput.value ? 'inline' : 'none';
+          });
+          clearBtn.style.display = searchInput.value ? 'inline' : 'none';
+        }
+      });
+      </script>
+      
 <li><a href="#fnref6">$MOSAIC OA ARCHITECTURAL OVERVIEW↩︎</a></li>
 <li><a href="#fnref7">#MOSAIC_OA_ARCHITECTURAL_OVERVIEW↩︎</a></li>
 <li><a href="#fnref8">KArchitectural Overview;Banking Industry
@@ -4079,57 +4155,138 @@ Statements↩︎</a></li>
 </ul>
 </div>
 <div class="content">
-<p>
-<sup>
-     +
-    </sup>
-<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref">
-<sup>
-      1
-     </sup>
-</a>
-<sup>
-     $
-    </sup>
-<a class="footnote-ref" href="#fn2" id="fnref2" role="doc-noteref">
-<sup>
-      2
-     </sup>
-</a>
-<sup>
-     K
-    </sup>
-<a class="footnote-ref" href="#fn3" id="fnref3" role="doc-noteref">
-<sup>
-      3
-     </sup>
-</a>
-<strong>
-<img alt="bm0.BMP" src="bm0.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-</strong>
-</p>
-<p>
-<sup>
-     #
-    </sup>
-<a class="footnote-ref" href="#fn4" id="fnref4" role="doc-noteref">
-<sup>
-      4
-     </sup>
-</a>
-<strong>
-     Main Topics:
-    </strong>
-</p>
-<p>
-    Choose among these major topic headings or click the Index button
-above for more choices. For the most precise search, use the Find
-function.
-   </p>
-<p>
-<sup>
-     +
-    </sup>
+    <p>
+        <a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref">
+          <strong>
+            <img alt="bm0.BMP" src="bm0.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
+          </strong>
+        </a>
+      </p>
+    <strong>Main Topics:</strong>
+    </p>
+      <p>
+        Choose among these major topic headings or click the Index button
+        above for more choices. For the most precise search, use the Find
+        function.
+      </p>
+    
+    <!-- INICIO: Cuadrícula moderna de Main Topics -->
+    <div class="topics-grid">
+      <div class="topic">
+        <img src="bm1.BMP" alt="Architectural Overview">
+        <div class="topic-title">Architectural Overview</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Field Definition">
+        <div class="topic-title">Field Definition</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Calculator: Built-in Function">
+        <div class="topic-title">Calculator: Built-in Function</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Flags: Defining and Using">
+        <div class="topic-title">Flags: Defining and Using</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Calendar: Built-in Function">
+        <div class="topic-title">Calendar: Built-in Function</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Invoking RT">
+        <div class="topic-title">Invoking RT</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="CDS Statements Information">
+        <div class="topic-title">CDS Statements Information</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Keyboard Issues">
+        <div class="topic-title">Keyboard Issues</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Charts, etc.: Creating for RT">
+        <div class="topic-title">Charts, etc.: Creating for RT</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="List Objects">
+        <div class="topic-title">List Objects</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Comm/CRT Statements Information">
+        <div class="topic-title">Comm/CRT Statements Information</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Math & Expressions">
+        <div class="topic-title">Math & Expressions</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Custom C Routines (CSR)">
+        <div class="topic-title">Custom C Routines (CSR)</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="ODBC Programmer Guide">
+        <div class="topic-title">ODBC Programmer Guide</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Data Collect Information">
+        <div class="topic-title">Data Collect Information</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="OLE Server & Client">
+        <div class="topic-title">OLE Server & Client</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Data Dictionary">
+        <div class="topic-title">Data Dictionary</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Olivetti Financial Basic (OFB)">
+        <div class="topic-title">Olivetti Financial Basic (OFB)</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Data Dictionary, Utilities">
+        <div class="topic-title">Data Dictionary, Utilities</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Picklists: Function Keys and Validation">
+        <div class="topic-title">Picklists: Function Keys and Validation</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="DDE Statements Information">
+        <div class="topic-title">DDE Statements Information</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Printing in Mosaic OA">
+        <div class="topic-title">Printing in Mosaic OA</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Development Issues">
+        <div class="topic-title">Development Issues</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Reset or &lt;Esc&gt; Handling">
+        <div class="topic-title">Reset or &lt;Esc&gt; Handling</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Edit Patterns & Data Entry Logic">
+        <div class="topic-title">Edit Patterns & Data Entry Logic</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Transaction: Definition of">
+        <div class="topic-title">Transaction: Definition of</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Error Messages">
+        <div class="topic-title">Error Messages</div>
+      </div>
+      <div class="topic">
+        <img src="bm1.BMP" alt="Validation Routines">
+        <div class="topic-title">Validation Routines</div>
+      </div>
+    </div>
+    <!-- FIN: Cuadrícula moderna de Main Topics -->
+
 <a class="footnote-ref" href="#fn5" id="fnref5" role="doc-noteref">
 <sup>
       5
@@ -4164,64 +4321,40 @@ function.
 OVERVIEW
     </strong>
 </p>
-<p>
-<u>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-</u>
-<strong>
-     Data Dictionary
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     OFB
-Interpreter
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     Central Data Server
-(CDS)
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     Integrated Banking
-Authoring Environment (IBAE)
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     Command Line
-Tools
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     The ‘Openness’ of Mosaic
-OA
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     Dynamic Data Exchange
-(DDE)
-    </strong>
-</p>
-<p>
-<strong>
-<img alt="bm1.BMP" src="bm1.BMP" style="max-width: 100%; height: auto; border: 1px solid #ccc; margin: 10px 0;"/>
-     OFB
-Statements
-    </strong>
-</p>
-<p>
+<div class="topics-grid">
+    <div class="topic">
+    <img src="bm1.BMP" alt="Data Dictionary">
+    <div class="topic-title">Data Dictionary</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="OFB Interpreter">
+    <div class="topic-title">OFB Interpreter</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="Central Data Server (CDS)">
+    <div class="topic-title">Central Data Server (CDS)</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="Integrated Banking Authoring Environment (IBAE)">
+    <div class="topic-title">Integrated Banking Authoring Environment (IBAE)</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="Command Line Tools">
+    <div class="topic-title">Command Line Tools</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="The ‘Openness’ of Mosaic OA">
+    <div class="topic-title">The ‘Openness’ of Mosaic OA</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="Dynamic Data Exchange (DDE)">
+    <div class="topic-title">Dynamic Data Exchange (DDE)</div>
+    </div>
+    <div class="topic">
+    <img src="bm1.BMP" alt="OFB Statements">
+    <div class="topic-title">OFB Statements</div>
+    </div>
+    </div><p>
     Click the Index button above for more topics.
    </p>
 <p>
